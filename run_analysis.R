@@ -4,20 +4,27 @@ rm(list = ls())
 # Load required packages
 library(data.table)
 
+
+# Download and unzip the data ---------------------------------------------
+
+dataURL <- 'https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip'
+download.file(url = dataURL, destfile = 'tempfile', method = 'curl')
+utils::unzip('tempfile')
+
 # Read in the data --------------------------------------------------------
 
 # Training set
-trainingSet <- read.table(file = 'UCI_HAR_Dataset/train/X_train.txt')
-trainingLabels <- read.table(file = 'UCI_HAR_Dataset/train/y_train.txt')
-trainingSubjectId <- read.table(file = 'UCI_HAR_Dataset/train/subject_train.txt')
+trainingSet <- read.table(file = 'UCI HAR Dataset/train/X_train.txt')
+trainingLabels <- read.table(file = 'UCI HAR Dataset/train/y_train.txt')
+trainingSubjectId <- read.table(file = 'UCI HAR Dataset/train/subject_train.txt')
 
 # Test set
-testSet <- read.table(file = 'UCI_HAR_Dataset/test/X_test.txt')
-testLabels <- read.table(file = 'UCI_HAR_Dataset/test/y_test.txt')
-testSubjectId <- read.table(file = 'UCI_HAR_Dataset/test/subject_test.txt')
+testSet <- read.table(file = 'UCI HAR Dataset/test/X_test.txt')
+testLabels <- read.table(file = 'UCI HAR Dataset/test/y_test.txt')
+testSubjectId <- read.table(file = 'UCI HAR Dataset/test/subject_test.txt')
 
 # Feature names
-featureNames <- read.table(file = 'UCI_HAR_Dataset/features.txt', row.names = 1)
+featureNames <- read.table(file = 'UCI HAR Dataset/features.txt', row.names = 1)
 
 
 # Assign column names (Question 4) ----------------------------------------
